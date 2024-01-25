@@ -20,14 +20,14 @@ html {
 }
 
 body {
-  font-family: Arial, sans-serif; /* Change as needed */
+  font-family: Arial, sans-serif;
   background-color: var(--bg-color);
   color: var(--link-color);
 }
 
 /* Container */
 .container {
-  display: flex; /* Use flexbox to align items in the same row */
+  display: flex;
   justify-content: space-between; /* This will place the logo and nav at opposite ends */
   align-items: center; /* Aligns items vertically in the center */
   padding: 10px 20px; /* Add some padding around the items */
@@ -58,10 +58,76 @@ body {
   padding: 0; /* Remove padding if there's any */
 }
 
-/* You might also want to ensure the header is not overlapping any content below */
 header {
   z-index: 1000; /* Ensures the header stays on top */
   width: 100%; /* Ensure the header spans the full width */
 }
 
+/* skip first the hero */
 
+.games-section {
+  background-color: #ffffff;
+  text-align: center;
+  padding: 50px 20px;
+  font-family: "Arial", sans-serif;
+}
+
+.section-title {
+  color: #000;
+  margin-bottom: 16px; /* space below the title */
+  font-size: 24px;
+}
+
+.section-subtitle {
+  color: #000;
+  margin-bottom: 32px; /* space below the subtitle */
+  font-size: 18px; /* size that matches design */
+}
+
+/* Specific container for the games section to avoid flexbox */
+.games-container {
+  display: block;
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.game-highlight {
+  background: #f0f0f0;
+  display: inline-block;
+  padding: 20px;
+  border-radius: 8px; /* rounded corners if needed */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* shadow for depth */
+}
+
+.game-title {
+  color: #000;
+  margin: 20px 0; /* space around the title */
+  font-size: 22px;
+}
+
+.game-image {
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.game-image img {
+  width: 100%;
+  height: auto;
+}
+
+.game-tag {
+  display: inline-block;
+  background-color: #ffcc00;
+  color: #ffffff; /* text color */
+  padding: 10px 20px;
+  margin-bottom: 16px; /* space below the tag */
+  font-size: 14px; /* or any size that matches your design */
+  border-radius: 20px; /* rounded corners */
+}
+
+.game-description {
+  color: #000;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 0; /* no space below the paragraph */
+}
