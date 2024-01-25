@@ -1,0 +1,86 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+}
+
+.hall-of-fame {
+  background-color: #f7f7f7; /* Light background for the table */
+  padding: 20px;
+  width: 100%; /* Full width of the container */
+  box-sizing: border-box; /* Padding included in the width */
+  margin-bottom: 20px; /* Space below the table */
+}
+
+.hall-of-fame h2 {
+  text-align: center;
+  margin-bottom: 20px; /* Space below the title */
+}
+
+#leaderboard {
+  width: 100%; /* Full width of the container */
+  border-collapse: collapse; /* Collapses the borders between cells */
+  table-layout: fixed; /* Ensures the table layout is fixed */
+}
+
+#leaderboard th,
+#leaderboard td {
+  border: 1px solid #ddd; /* Light border for the cells */
+  padding: 8px;
+  text-align: left;
+  word-wrap: break-word; /* Ensures text wraps inside cells */
+}
+
+#leaderboard th {
+  background-color: #eee; /* Background color for headers */
+}
+
+/* Adjust the form container size if necessary */
+.record-form {
+  max-width: 500px; /* or any max-width that fits your design */
+  margin: 0 auto; /* Center the form if it's not full width */
+  padding: 20px;
+}
+
+/* Rest of your CSS for input fields and button */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #eee;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+input[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  opacity: 0.8;
+}
+
+/* Add additional styling as needed */
