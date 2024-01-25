@@ -1,0 +1,67 @@
+/* Variables */
+:root {
+  --bg-color: #0d0d0d; /* Adjust the color to match your header background */
+  --link-color: #ffffff; /* Adjust the link color as needed */
+  --link-hover-color: #ccc; /* Color for link hover state */
+  --logo-color: #f5a623; /* Color for the logo */
+}
+
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: Arial, sans-serif; /* Change as needed */
+  background-color: var(--bg-color);
+  color: var(--link-color);
+}
+
+/* Container */
+.container {
+  display: flex; /* Use flexbox to align items in the same row */
+  justify-content: space-between; /* This will place the logo and nav at opposite ends */
+  align-items: center; /* Aligns items vertically in the center */
+  padding: 10px 20px; /* Add some padding around the items */
+}
+
+/* Navbar */
+.navbar-list {
+  list-style: none;
+  display: flex; /* Display the list items inline */
+  gap: 20px; /* Space out the nav items */
+  padding: 0; /* Reset padding */
+  margin: 0; /* Reset margin */
+}
+
+.navbar-item .navbar-link {
+  color: var(--link-color);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 1.2em;
+  padding: 8px 16px; /* Add padding to increase the clickable area */
+}
+
+/* Additional adjustments for the logo */
+.logo {
+  text-decoration: none;
+  color: var(--logo-color);
+  font-size: 2.5em;
+  padding: 0; /* Remove padding if there's any */
+}
+
+/* You might also want to ensure the header is not overlapping any content below */
+header {
+  z-index: 1000; /* Ensures the header stays on top */
+  width: 100%; /* Ensure the header spans the full width */
+}
+
+
