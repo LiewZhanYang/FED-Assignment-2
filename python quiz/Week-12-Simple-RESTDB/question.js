@@ -1,4 +1,4 @@
-//References
+// References
 let timeLeft = document.querySelector(".time-left");
 let quizContainer = document.getElementById("container");
 let nextBtn = document.getElementById("next-button");
@@ -9,173 +9,150 @@ let restart = document.getElementById("restart");
 let userScore = document.getElementById("user-score");
 let startScreen = document.querySelector(".start-screen");
 let startButton = document.getElementById("start-button");
-let questionCount;
+let questionCount = 0;
 let scoreCount = 0;
-let count = 11;
+let count = 10; // Adjusted to 10 to match "10s" initially displayed
 let countdown;
+let quizArray = []; // Will be filled with fetched data
 
-//Questions and Options array
-
+// Fetch and setup quiz
 document.addEventListener("DOMContentLoaded", function () {
-    const APIKEY = "65b1d9dda2399ae3ac4d588e";
-    const API_URL = "https://fedassignment2ccgame-ef3b.restdb.io/rest/pythonquestion";
-    function initial() {
-        fetch("https://fedassignment2ccgame-ef3b.restdb.io/rest/pythonquestion", {
-          method: "GET",
-          headers: {
-            "x-apikey": "65b1d9dda2399ae3ac4d588e",
-            "Content-Type": "application/json"
-          }
-        })
-        .then(response => response.json())
-        .then(data => {
-          // Convert the fetched data to the expected structure for the quiz
-          const quizArray = data.map(item => ({
-            id: item.id.toString(),
-            question: item.question,
-            options: JSON.parse(item.options), // Assuming options are stored as a JSON string
-            correct: item.answer
-          }));
-      
-          // Proceed with setting up the quiz using the fetched data
-          quizContainer.innerHTML = "";
-          questionCount = 0;
-          scoreCount = 0;
-          count = 11;
-          clearInterval(countdown);
-          timerDisplay();
-          quizCreator(quizArray);  // Pass the quizArray to quizCreator
-          quizDisplay(questionCount);
-        })
-        .catch(error => console.error("Error loading quiz questions:", error));
-      }
-          
+  startButton.addEventListener("click", function () {
+    startScreen.classList.add("hide");
+    displayContainer.classList.remove("hide");
+    initial();
+  });
 
-//Restart Quiz
-restart.addEventListener("click", () => {
-  initial();
-  displayContainer.classList.remove("hide");
-  scoreContainer.classList.add("hide");
+  restart.addEventListener("click", function () {
+    initial();
+    displayContainer.classList.remove("hide");
+    scoreContainer.classList.add("hide");
+  });
+
+  nextBtn.addEventListener("click", function () {
+    handleNextQuestion();
+  });
 });
 
-//Next Button
-nextBtn.addEventListener(
-  "click",
-  (displayNext = () => {
-    //increment questionCount
-    questionCount += 1;
-    //if last question
-    if (questionCount == quizArray.length) {
-      //hide question container and display score
-      displayContainer.classList.add("hide");
-      scoreContainer.classList.remove("hide");
-      //user score
-      userScore.innerHTML =
-        "Your score is " + scoreCount + " out of " + questionCount;
-    } else {
-      //display questionCount
-      countOfQuestion.innerHTML =
-        questionCount + 1 + " of " + quizArray.length + " Question";
-      //display quiz
-      quizDisplay(questionCount);
-      count = 11;
-      clearInterval(countdown);
-      timerDisplay();
-    }
-  })
-);
+function initial() {
+  fetchQuizData();
+}
 
-//Timer
-const timerDisplay = () => {
+function fetchQuizData() {
+  const APIKEY = "65b1d9dda2399ae3ac4d588e";
+  const API_URL =
+    "https://fedassignment2ccgame-ef3b.restdb.io/rest/pythonquestion";
+
+  fetch(API_URL, {
+    method: "GET",
+    headers: {
+      "x-apikey": APIKEY,
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      quizArray = data.map((item) => ({
+        question: item.question,
+        options: JSON.parse(item.options),
+        correct: item.answer,
+      }));
+      setupQuiz();
+    })
+    .catch((error) => console.error("Error loading quiz questions:", error));
+}
+
+function setupQuiz() {
+  quizContainer.innerHTML = "";
+  questionCount = 0;
+  scoreCount = 0;
+  count = 10;
+  clearInterval(countdown);
+  timerDisplay();
+  quizCreator();
+  quizDisplay(questionCount);
+}
+
+function timerDisplay() {
+  timeLeft.textContent = `${count}s`;
   countdown = setInterval(() => {
     count--;
-    timeLeft.innerHTML = `${count}s`;
-    if (count == 0) {
+    timeLeft.textContent = `${count}s`;
+    if (count <= 0) {
       clearInterval(countdown);
-      displayNext();
+      handleNextQuestion();
     }
   }, 1000);
-};
+}
 
-//Display quiz
-const quizDisplay = (questionCount) => {
-  let quizCards = document.querySelectorAll(".container-mid");
-  //Hide other cards
-  quizCards.forEach((card) => {
-    card.classList.add("hide");
-  });
-  //display current question card
-  quizCards[questionCount].classList.remove("hide");
-};
-
-//Quiz Creation
 function quizCreator() {
-  //randomly sort questions
-  quizArray.sort(() => Math.random() - 0.5);
-  //generate quiz
-  for (let i of quizArray) {
-    //randomly sort options
-    i.options.sort(() => Math.random() - 0.5);
-    //quiz card creation
+  quizArray.forEach((item, index) => {
     let div = document.createElement("div");
     div.classList.add("container-mid", "hide");
-    //question number
-    countOfQuestion.innerHTML = 1 + " of " + quizArray.length + " Question";
-    //question
     let question_DIV = document.createElement("p");
     question_DIV.classList.add("question");
-    question_DIV.innerHTML = i.question;
+    question_DIV.textContent = item.question;
     div.appendChild(question_DIV);
-    //options
-    div.innerHTML += `
-    <button class="option-div" onclick="checker(this)">${i.options[0]}</button>
-     <button class="option-div" onclick="checker(this)">${i.options[1]}</button>
-      <button class="option-div" onclick="checker(this)">${i.options[2]}</button>
-       <button class="option-div" onclick="checker(this)">${i.options[3]}</button>
-    `;
-    quizContainer.appendChild(div);
-  }
-}
 
-//Checker Function to check if option is correct or not
-function checker(userOption) {
-  let userSolution = userOption.innerText;
-  let question =
-    document.getElementsByClassName("container-mid")[questionCount];
-  let options = question.querySelectorAll(".option-div");
-
-  //if user clicked answer == correct option stored in object
-  if (userSolution === quizArray[questionCount].correct) {
-    userOption.classList.add("correct");
-    scoreCount++;
-  } else {
-    userOption.classList.add("incorrect");
-    //For marking the correct option
-    options.forEach((element) => {
-      if (element.innerText == quizArray[questionCount].correct) {
-        element.classList.add("correct");
-      }
+    item.options.forEach((option) => {
+      let button = document.createElement("button");
+      button.classList.add("option-div");
+      button.textContent = option;
+      button.addEventListener("click", function () {
+        checker(this, item.correct);
+      });
+      div.appendChild(button);
     });
-  }
 
-  //clear interval(stop timer)
-  clearInterval(countdown);
-  //disable all options
-  options.forEach((element) => {
-    element.disabled = true;
+    quizContainer.appendChild(div);
   });
 }
 
+function quizDisplay(questionIndex) {
+  let quizCards = document.querySelectorAll(".container-mid");
+  quizCards.forEach((card) => card.classList.add("hide"));
+  quizCards[questionIndex].classList.remove("hide");
+  countOfQuestion.textContent = `${questionIndex + 1} of ${
+    quizArray.length
+  } Question`;
+}
 
-//when user click on start button
-startButton.addEventListener("click", () => {
-  startScreen.classList.add("hide");
-  displayContainer.classList.remove("hide");
-  initial();
-});
+function checker(selectedOption, correctAnswer) {
+  let options = selectedOption.parentNode.querySelectorAll(".option-div");
+  options.forEach((option) => {
+    option.disabled = true;
+    if (option.textContent === correctAnswer) {
+      option.classList.add("correct");
+    }
+  });
+  if (selectedOption.textContent === correctAnswer) {
+    scoreCount++;
+  } else {
+    selectedOption.classList.add("incorrect");
+  }
+  clearInterval(countdown);
+}
 
-//hide quiz and display start screen
-window.onload = () => {
+function handleNextQuestion() {
+  questionCount++;
+  if (questionCount < quizArray.length) {
+    quizDisplay(questionCount);
+    count = 10;
+    clearInterval(countdown);
+    timerDisplay();
+  } else {
+    displayResults();
+  }
+}
+
+function displayResults() {
+  displayContainer.classList.add("hide");
+  scoreContainer.classList.remove("hide");
+  userScore.textContent = `Your score is ${scoreCount} out of ${quizArray.length}`;
+}
+
+window.onload = function () {
   startScreen.classList.remove("hide");
   displayContainer.classList.add("hide");
+  scoreContainer.classList.add("hide");
 };
