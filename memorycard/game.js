@@ -162,7 +162,7 @@ function drawCards() {
             <div class="card__back">
               <img
                 class="back__img"
-                src="C:\Users\User\Documents\Ngee Ann Poly Module\Sem 2 Ngee Ann IT courses modules\b Front-End Development\Assignment 2\FED Assignment 2\image\memory-image.webp"
+                src="file:///C:/Users/User/Downloads/06ba5ddc-3afc-43d0-aa85-9663f27cc12e.webp"
                 alt="Thought"
               />
             </div>
