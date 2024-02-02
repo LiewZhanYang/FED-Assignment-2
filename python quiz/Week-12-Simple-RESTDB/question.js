@@ -117,7 +117,7 @@ function quizDisplay(questionIndex) {
   } Question`;
 }
 
-function checker(selectedOption, correctAnswer) {
+function checker(selectedOption, correctAnswer) {u
   let options = selectedOption.parentNode.querySelectorAll(".option-div");
   options.forEach((option) => {
     option.disabled = true;
@@ -127,6 +127,7 @@ function checker(selectedOption, correctAnswer) {
   });
   if (selectedOption.textContent === correctAnswer) {
     scoreCount++;
+    selectedOption.classList.add("correct");  
   } else {
     selectedOption.classList.add("incorrect");
   }
