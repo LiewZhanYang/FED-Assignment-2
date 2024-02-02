@@ -86,25 +86,28 @@ function timerDisplay() {
 }
 
 function quizCreator() {
-  quizArray.forEach((item, index) => {
+  quizArray.forEach((item) => {
+    // Iterate over each question in the quizArray
     let div = document.createElement("div");
     div.classList.add("container-mid", "hide");
-    let question_DIV = document.createElement("p");
-    question_DIV.classList.add("question");
-    question_DIV.textContent = item.question;
-    div.appendChild(question_DIV);
 
+    let questionDiv = document.createElement("p");
+    questionDiv.classList.add("question");
+    questionDiv.textContent = item.question; // Set the question text
+    div.appendChild(questionDiv); // Append the question to the div
+
+    // Iterate over the options for the current question
     item.options.forEach((option) => {
       let button = document.createElement("button");
       button.classList.add("option-div");
-      button.textContent = option;
+      button.textContent = option; // Set the option text
       button.addEventListener("click", function () {
-        checker(this, item.correct);
+        checker(this, item.correct); // Add click event listener, passing the clicked option and the correct answer
       });
-      div.appendChild(button);
+      div.appendChild(button); // Append the option button to the div
     });
 
-    quizContainer.appendChild(div);
+    quizContainer.appendChild(div); // Append the div to the quiz container
   });
 }
 
@@ -117,21 +120,29 @@ function quizDisplay(questionIndex) {
   } Question`;
 }
 
-function checker(selectedOption, correctAnswer) {u
+function checker(selectedOption, correctAnswer) {
   let options = selectedOption.parentNode.querySelectorAll(".option-div");
   options.forEach((option) => {
-    option.disabled = true;
-    if (option.textContent === correctAnswer) {
-      option.classList.add("correct");
+    option.disabled = true; // Disable all options once an option is selected
+    if (option.textContent === correctAnswer.replace(/"/g, "")) {
+      // remove additional quotes from correct answer
+      option.classList.add("correct"); // Add 'correct' class to the correct option
     }
   });
-  if (selectedOption.textContent === correctAnswer) {
-    scoreCount++;
-    selectedOption.classList.add("correct");  
+  if (selectedOption.textContent === correctAnswer.replace(/"/g, "")) {
+    scoreCount++; // Increment score if the selected option is correct
+    selectedOption.classList.add("correct"); // Highlight the selected option if it's correct
   } else {
-    selectedOption.classList.add("incorrect");
+    selectedOption.classList.add("incorrect"); // Highlight the selected option if it's incorrect
+    // Find the correct option and highlight it as well
+    let correctOption = Array.from(options).find(
+      (option) => option.textContent === correctAnswer.replace(/"/g, "")
+    );
+    if (correctOption) {
+      correctOption.classList.add("correct");
+    }
   }
-  clearInterval(countdown);
+  clearInterval(countdown); // Stop the timer
 }
 
 function handleNextQuestion() {
