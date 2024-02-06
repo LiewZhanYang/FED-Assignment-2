@@ -293,3 +293,37 @@ body {
   height: 100%;
   object-fit: cover; /* Covers the area without stretching. Adjust as needed */
 }
+
+/* aboutus */
+
+.about-us {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 0;
+  background-color: #f2f2f2;
+  color: #000;
+}
+
+.about-us__logo {
+  margin-bottom: 20px;
+}
+
+.about-us__logo img {
+  width: 200px;
+  height: auto;
+}
+
+.about-us__content {
+  text-align: center;
+}
+
+.about-us__content h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.about-us__content p {
+  font-size: 16px;
+  line-height: 1.5;
+}
