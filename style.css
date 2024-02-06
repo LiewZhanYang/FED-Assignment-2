@@ -122,7 +122,6 @@ body {
   padding-left: 15px; /* Optional padding to ensure text doesn't touch the screen edge */
 }
 
-
 .hero-subtitle {
   color: var(--marigold);
   font-size: 20px;
@@ -174,7 +173,6 @@ body {
   color: #686868;
   margin-bottom: 16px; /* space below the title */
   font-size: 70px;
-
 }
 
 .section-subtitle {
@@ -183,26 +181,37 @@ body {
   font-size: 30px; /* size that matches design */
 }
 
-.section-subtitle .span{
+.section-subtitle .span {
   color: var(--marigold);
 }
 
 /* Specific container for the games section to avoid flexbox */
 .games-container {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  padding: 50px 20px;
+  height: 100%;
 }
 
 .game-highlight {
   background: #f0f0f0;
-  display: inline-block;
+  width: 300px; /* Set a fixed width */
+  height: 300px; /* Set the same value for height to make it a square */
   padding: 20px;
   border-radius: 8px; /* rounded corners if needed */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* shadow for depth */
+  display: flex; /* Use flexbox for alignment */
+  flex-direction: column; /* Stack children vertically */
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+  padding: 10px; /* You can adjust the padding as needed */
+  border-radius: 8px; /* This will round the corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* This adds a shadow for depth */
 }
 
-.game-title {
+.game-title,
+.game-description {
   color: #000;
   margin: 20px 0; /* space around the title */
   font-size: 22px;
@@ -211,11 +220,13 @@ body {
 .game-image {
   max-width: 300px;
   margin: 0 auto;
+  display:block;
 }
 
 .game-image img {
-  width: 100%;
-  height: auto;
+  max-width: 100%; /* Ensure the image does not overflow */
+  max-height: 100%; /* Limit the height as well */
+  object-fit: cover; /* Cover the area without stretching */
 }
 
 .game-tag {
