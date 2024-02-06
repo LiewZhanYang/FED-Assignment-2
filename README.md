@@ -1,0 +1,1 @@
+![DALL·E 2024-01-25 10 51 43 - Design a modern and sleek logo for a company named 'Codecrafter Gaming'  The logo should incorporate elements that represent coding and gaming  Featur](https://github.com/LiewZhanYang/FED-Assignment-2/assets/148023902/29d7a545-10b4-49f9-b2ea-0ef89814a347)
