@@ -1,7 +1,6 @@
 /* Variables */
 :root {
-  --bg-color: #0d0d0d; /* Adjust the color to match your header background */
-  --link-color: #ffffff; /* Adjust the link color as needed */
+  --link-color: #ffffff; /* Adjust t link color as needed */
   --link-hover-color: #ccc; /* Color for link hover state */
   --logo-color: #f5a623; /* Color for the logo */
   --rich-black-fogra-29_95: hsla(222, 18%, 11%, 0.95);
@@ -28,7 +27,6 @@
   --silver: hsl(0, 0%, 78%);
   --white: hsl(0, 0%, 100%);
   --jet: hsl(236, 13%, 23%);
-
 }
 
 /* Basic Reset */
@@ -59,33 +57,43 @@ body {
 }
 
 /* Navbar */
-.navbar-list {
-  list-style: none;
-  display: flex; /* Display the list items inline */
-  gap: 20px; /* Space out the nav items */
-  padding: 0; /* Reset padding */
-  margin: 0; /* Reset margin */
+.navbar {
+  border-bottom: none; /* Removes the bottom border */
 }
 
-.navbar-item .navbar-link {
-  color: var(--link-color);
-  text-decoration: none;
-  text-transform: uppercase;
-  font-size: 1.2em;
-  padding: 8px 16px; /* Add padding to increase the clickable area */
+/* Make the navbar title bigger */
+.navbar-brand {
+  font-size: 2rem; /* Adjust font size as needed */
+  background-color: yellow;/* This sets the background color to yellow */
+  padding: 5px 10px; /* Add some padding */
+  border-radius: 5px; /* Optional: rounds the corners */
 }
 
-/* Additional adjustments for the logo */
-.logo {
-  text-decoration: none;
-  color: var(--logo-color);
-  font-size: 2.5em;
-  padding: 0; /* Remove padding if there's any */
+/* Adjust the color for the title text if needed */
+
+
+/* Ensures that the navbar links are evenly distributed and centered */
+.navbar-collapse {
+  justify-content: space-around; /* This will space out the navbar items evenly */
 }
 
-header {
-  z-index: 1000; /* Ensures the header stays on top */
-  width: 100%; /* Ensure the header spans the full width */
+.navbar-nav .nav-item .nav-link {
+  padding: 0.5rem 1.5rem; /* Increases padding around the links */
+  font-size: 1rem; /* Bigger font size for the links */
+}
+
+/* This increases the horizontal spacing between navbar items */
+.navbar-nav {
+  gap: 10rem; /* Adjust gap size as needed */
+}
+
+/* Additional styles to ensure navbar items are spaced out and centered */
+@media (min-width: 992px) {
+  /* Adjusts for larger devices where the navbar expands */
+  .navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 1.5rem; /* Increase right padding */
+    padding-left: 1.5rem; /* Increase left padding */
+  }
 }
 
 /* skip first the hero */
@@ -109,16 +117,18 @@ header {
   text-transform: uppercase;
 }
 
-.hero-title { margin-block: 15px 12px; }
+.hero-title {
+  font-size: 70px;
+}
+
+.hero-title.span {
+  color: var(--marigold);
+}
 
 .hero-text {
   color: var(--light-gray-2);
   margin-block-end: 45px;
 }
-
-
-
-
 
 .games-section {
   background-color: #ffffff;
