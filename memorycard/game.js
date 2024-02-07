@@ -1,174 +1,59 @@
-const CARDS = [
-  {
-    id: 1,
-    name: "javascript",
-    img: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/js-logo.png",
-  },
-  {
-    id: 2,
-    name: "css3",
-    img: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/css3-logo.png",
-  },
-  {
-    id: 3,
-    name: "html5",
-    img: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/html5-logo.png",
-  },
-  {
-    id: 4,
-    name: "safari",
-    img: "https://res.cloudinary.com/henryzarza/image/upload/v1601735663/General%20assets/safari_mw13q8.png",
-  },
-  {
-    id: 5,
-    name: "rails",
-    img: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/rails-logo.png",
-  },
-  {
-    id: 6,
-    name: "node",
-    img: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/nodejs-logo.png",
-  },
-  {
-    id: 7,
-    name: "react",
-    img: "https://res.cloudinary.com/henryzarza/image/upload/v1601735662/General%20assets/react_m1pmwj.png",
-  },
-  {
-    id: 8,
-    name: "angular",
-    img: "https://res.cloudinary.com/henryzarza/image/upload/v1601735662/General%20assets/angular_qqblks.png",
-  },
-  {
-    id: 9,
-    name: "vuejs",
-    img: "https://res.cloudinary.com/henryzarza/image/upload/v1601735662/General%20assets/vue_ctikzd.png",
-  },
-  {
-    id: 10,
-    name: "svelte",
-    img: "https://res.cloudinary.com/henryzarza/image/upload/v1601735662/General%20assets/svelte_keupr5.png",
-  },
-  {
-    id: 11,
-    name: "chrome",
-    img: "https://res.cloudinary.com/henryzarza/image/upload/v1601735663/General%20assets/chrome_lr919s.png",
-  },
-  {
-    id: 12,
-    name: "mozilla",
-    img: "https://res.cloudinary.com/henryzarza/image/upload/v1601735663/General%20assets/mozilla_us5y7o.png",
-  },
-];
-const cardContainer = document.querySelector(".card-container");
-const available = document.querySelector("#available");
-const modalTitle = document.querySelector("#modal-title");
-const modal = document.querySelector("#modal");
-let currentCards = [...CARDS, ...CARDS];
-let isPaused = false;
-let counter = 1;
-let isLose = false;
+// Function to fetch cards from the API and draw them
+function drawCardsFromApi() {
+  const API_URL = 'https://fedbackup-7b14.restdb.io/rest/memorygame';
+  const API_KEY = '65c396ee9612a48827d496ad';
 
-function shuffle(array) {
-  let counter = array.length,
-    temp,
-    index;
-  while (counter > 0) {
-    index = Math.floor(Math.random() * counter);
-    counter--;
-    temp = array[counter];
-    array[counter] = array[index];
-    array[index] = temp;
-  }
-  return array;
-}
-
-function win() {
-  isPaused = true;
-  modalTitle.innerHTML = "You win! 🙌🥳";
-  modal.classList.add("modal--open");
-}
-
-function lose() {
-  isLose = true;
-  modalTitle.innerHTML = "Thanks for playing 🙌";
-  modal.classList.add("modal--open");
-}
-
-function handleClick(e) {
-  const { target } = e;
-  if (
-    !isPaused &&
-    !isLose &&
-    !target.classList.contains("card--guessed") &&
-    !target.classList.contains("card--picked")
-  ) {
-    isPaused = true;
-    const picked = cardContainer.querySelector(".card--picked");
-    if (picked) {
-      if (picked.dataset.id === target.dataset.id) {
-        target.classList.remove("card--picked");
-        picked.classList.remove("card--picked");
-        target.classList.add("card--guessed");
-        picked.classList.add("card--guessed");
-        isPaused = false;
-      } else {
-        target.classList.add("card--picked");
-        setTimeout(() => {
-          target.classList.remove("card--picked");
-          picked.classList.remove("card--picked");
-          isPaused = false;
-        }, 1500);
-      }
-      console.log("counter", counter);
-      counter -= 1;
-      available.innerHTML = counter;
-      if (counter === 0) {
-        lose();
-      }
-    } else {
-      target.classList.add("card--picked");
-      isPaused = false;
+  fetch(API_URL, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'x-apikey': API_KEY
     }
-
-    // Validate is already win
-    const isWin =
-      cardContainer.querySelectorAll("card--guessed").length ===
-      currentCards.length;
-    if (isWin) {
-      win();
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
     }
-  }
+    return response.json();
+  })
+  .then(data => {
+    // Assuming each 'image' field in your data is an array with a single string (the image URL)
+    currentCards = data.map(card => ({
+      id: card.id,
+      name: card.name,
+      img: card.image[0] // You might need to adjust this if the structure is different
+    }));
+    currentCards = [...currentCards, ...currentCards]; // Duplicate the card data for matching
+    shuffleAndDisplayCards(currentCards);
+  })
+  .catch(error => {
+    console.error("Could not load cards from the API:", error);
+  });
 }
 
-function drawCards() {
-  cardContainer.innerHTML = "";
+// Function to shuffle cards and append to DOM
+function shuffleAndDisplayCards(cards) {
+  const shuffledCards = shuffle(cards);
+  cardContainer.innerHTML = ""; // Clear the card container
   available.innerHTML = counter;
 
-  shuffle(currentCards).forEach((el) => {
+  shuffledCards.forEach(el => {
     const card = document.createElement("div");
     card.className = "card";
     card.setAttribute("data-id", el.id);
     card.innerHTML = `
-            <div class="card__front">
-              <img
-                class="front__img"
-                src="${el.img}"
-                alt="${el.name}"
-              />
-              <h6 class="card__name">${el.name}</h6>
-            </div>
-            <div class="card__back">
-              <img
-                class="back__img"
-                style="background-image: url(image\memory-image.webp);
-                alt="blank"
-              />
-            </div>
-          `;
+      <div class="card__front">
+        <img class="front__img" src="${el.img}" alt="${el.name}" />
+        <h6 class="card__name">${el.name}</h6>
+      </div>
+      <div class="card__back">
+        <img class="back__img" src="image/memory-image.webp" alt="blank" />
+      </div>
+    `;
     card.addEventListener("click", handleClick);
     cardContainer.appendChild(card);
   });
 }
 
-drawCards();
+// Call drawCardsFromApi when the DOM content is loaded
+document.addEventListener('DOMContentLoaded', drawCardsFromApi);
