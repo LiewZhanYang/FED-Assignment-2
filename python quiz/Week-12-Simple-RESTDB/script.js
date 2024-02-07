@@ -11,10 +11,12 @@ document.addEventListener("DOMContentLoaded", function () {
     .getElementById("recordForm")
     .addEventListener("submit", function (e) {
       e.preventDefault(); // Prevent default form submission
+      const scoreKey = "quizScore";
+      localStorage.setItem(scoreKey, scoreCount);
 
       let name = document.getElementById("name").value;
       let email = document.getElementById("email").value;
-      let score = window.quizScore ? Number(window.quizScore) : 0;
+      let score = parseInt(localStorage.getItem("quizScore"), 10);
 
       if (isNaN(score)) {
         console.error("Score is not a number", score);

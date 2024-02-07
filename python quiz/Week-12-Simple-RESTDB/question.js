@@ -189,9 +189,8 @@ function displayResults() {
   console.log("Displaying results, scoreCount:", scoreCount); // Debugging line
   displayContainer.classList.add("hide");
   scoreContainer.classList.remove("hide");
-  userScore.textContent = `Your score is ${scoreCount} out of ${quizArray.length}`;
+  userScore.textContent = `${scoreCount} out of ${quizArray.length}`;
 }
-
 
 window.onload = function () {
   startScreen.classList.remove("hide");
@@ -199,33 +198,23 @@ window.onload = function () {
   scoreContainer.classList.add("hide");
 };
 
-// Function to calculate the quiz score
-// This is just a placeholder; you need to define how the score is calculated based on your quiz logic
-function calculateScore() {
-  // ... logic to calculate score based on answers ...
-  return scoreCount; // Assuming scoreCount is the variable that holds the calculated score
-}
-
-// Function to display the score page
-// This function will hide the quiz and show the score results
 function displayScorePage(score) {
-  // Assuming you have HTML elements with IDs 'quiz' and 'scorePage' respectively
-  document.getElementById("quiz").style.display = "none"; // Hide the quiz
-  document.getElementById("scorePage").style.display = "block"; // Show the score page
-
-  // Update the score display
-  document.getElementById(
-    "userScore"
-  ).textContent = `Your score is ${score} out of ${quizArray.length}`;
+  let userScoreElement = document.getElementById("userScore");
+  userScoreElement.textContent = `${score} out of ${quizArray.length}`;
+  userScoreElement.style.fontSize =
+    "3em"; /* Increase font-size when displaying score */
 }
+
+// Update the score display
+document.getElementById(
+  "userScore"
+).textContent = `${score} out of ${quizArray.length}`;
 
 function finishQuiz() {
   // Calculate the score
-  let score = calculateScore(); // Your function that calculates the score
+  let score = scoreCount; // Your function that calculates the score
 
   // Store the score in localStorage
-  localStorage.setItem(score);
+  localStorage.setItem('quizScore',score);
 
-  // Display the score page
-  displayScorePage(score); // Your function that displays the score page
 }
