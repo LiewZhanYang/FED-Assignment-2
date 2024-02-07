@@ -211,10 +211,11 @@ document.getElementById(
 ).textContent = `${score} out of ${quizArray.length}`;
 
 function finishQuiz() {
-  // Calculate the score
-  let score = scoreCount; // Your function that calculates the score
+  if (typeof scoreCount !== "number") {
+    console.error("scoreCount is not defined or not a number");
+    return;
+  }
 
   // Store the score in localStorage
-  localStorage.setItem('quizScore',score);
-
+  localStorage.setItem("quizScore", scoreCount);
 }
