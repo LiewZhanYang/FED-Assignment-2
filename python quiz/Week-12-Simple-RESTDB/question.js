@@ -51,10 +51,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
   document.getElementById("continue").addEventListener("click", function () {
-    window.location.href = "python quizWeek-12-Simple-RESTDBinform.html"; // Change to your next page URL
-  });
-
-  document.getElementById("continue").addEventListener("click", function () {
     // Hide the score container and show another part of your app
     scoreContainer.classList.add("hide");
     // For example, show the main menu again or move to a different part of your app
