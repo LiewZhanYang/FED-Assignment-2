@@ -124,13 +124,17 @@ body {
 
 .hero-subtitle {
   color: var(--marigold);
-  font-size: 20px;
+  width: 70%;
+  font-size: calc(12px + 2.6vw);
   font-weight: bold;
   text-transform: uppercase;
+  border: 2px dotted red;
 }
 
 .hero-title {
-  font-size: 90px;
+  font-size: calc(10px + 16vw);
+  width: 70%;
+  border: 2px dotted red;
   font-weight: bold;
   font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -141,7 +145,10 @@ body {
 
 .hero-text {
   color: var(--light-gray-2);
-  margin-block-end: 45px;
+  margin-block-end: 100%;
+  width: 70%;
+  font-size: calc(6px + 1vw);
+  border: 2px dotted red;
 }
 
 .read-more-button {
@@ -217,7 +224,8 @@ body {
   font-family: Verdana, Arial, Helvetica, sans-serif;
   font-weight: bold;
   margin: 20px 0; /* space around the title */
-  font-size: 50px;
+  font-size: calc(25px + 5vw);
+  border: 2px dotted red;
 }
 
 .game-title .span {
@@ -248,7 +256,7 @@ body {
 
 .game-description {
   color: #000;
-  font-size: 18px;
+  font-size: calc(8px + 1.6vw);
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   line-height: 1.6;
   margin-bottom: 0; /* no space below the paragraph */
@@ -260,7 +268,8 @@ body {
 
 .line {
   color: var(--marigold);
-  font-size: calc(10px + 1.6vw);
+  width: 60%;
+  font-size: 4vw;
   margin-top: 90px;
   display: block;
   border: 2px dotted red;
