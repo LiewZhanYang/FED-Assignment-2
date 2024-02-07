@@ -102,12 +102,14 @@ body {
 /* skip first the hero */
 
 .hero {
+  border: 2px dotted red;
   --section-padding: 60px;
   margin-block-start: 0; /* Changed from 84px to 0 to remove the top margin */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   text-align: center;
+  width: 100%;
   min-height: 100vh;
   display: grid;
   align-items: center;
@@ -115,6 +117,7 @@ body {
 }
 
 .hero-content {
+  border: 2px dotted red;
   text-align: left; /* Aligns text to the left */
   max-width: 1200px; /* Adjust the max width as needed */
   margin-left: auto; /* Keeps the content centered if less than max width */
@@ -132,7 +135,7 @@ body {
 }
 
 .hero-title {
-  font-size: calc(10px + 16vw);
+  font-size: 10vw;
   width: 70%;
   border: 2px dotted red;
   font-weight: bold;
@@ -145,7 +148,7 @@ body {
 
 .hero-text {
   color: var(--light-gray-2);
-  margin-block-end: 100%;
+  margin-block-end: 2rem; /* Adjusted from 100% to a more reasonable value */
   width: 70%;
   font-size: calc(6px + 1vw);
   border: 2px dotted red;
@@ -157,6 +160,7 @@ body {
   font-weight: bold; /* Make the text bold */
   background-color: transparent; /* Transparent background */
   color: #ffffff; /* White text, adjust color as needed */
+  font-size: 1vw;
   text-transform: uppercase; /* Uppercase text */
   transition: background-color 0.3s ease; /* Smooth background transition for hover effect */
 }
