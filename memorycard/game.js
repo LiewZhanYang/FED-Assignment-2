@@ -1,10 +1,72 @@
+const CARDS = [
+  {
+    id: 1,
+    name: "javascript",
+    img: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/js-logo.png",
+  },
+  {
+    id: 2,
+    name: "css3",
+    img: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/css3-logo.png",
+  },
+  {
+    id: 3,
+    name: "html5",
+    img: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/html5-logo.png",
+  },
+  {
+    id: 4,
+    name: "safari",
+    img: "https://res.cloudinary.com/henryzarza/image/upload/v1601735663/General%20assets/safari_mw13q8.png",
+  },
+  {
+    id: 5,
+    name: "rails",
+    img: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/rails-logo.png",
+  },
+  {
+    id: 6,
+    name: "node",
+    img: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/nodejs-logo.png",
+  },
+  {
+    id: 7,
+    name: "react",
+    img: "https://res.cloudinary.com/henryzarza/image/upload/v1601735662/General%20assets/react_m1pmwj.png",
+  },
+  {
+    id: 8,
+    name: "angular",
+    img: "https://res.cloudinary.com/henryzarza/image/upload/v1601735662/General%20assets/angular_qqblks.png",
+  },
+  {
+    id: 9,
+    name: "vuejs",
+    img: "https://res.cloudinary.com/henryzarza/image/upload/v1601735662/General%20assets/vue_ctikzd.png",
+  },
+  {
+    id: 10,
+    name: "svelte",
+    img: "https://res.cloudinary.com/henryzarza/image/upload/v1601735662/General%20assets/svelte_keupr5.png",
+  },
+  {
+    id: 11,
+    name: "chrome",
+    img: "https://res.cloudinary.com/henryzarza/image/upload/v1601735663/General%20assets/chrome_lr919s.png",
+  },
+  {
+    id: 12,
+    name: "mozilla",
+    img: "https://res.cloudinary.com/henryzarza/image/upload/v1601735663/General%20assets/mozilla_us5y7o.png",
+  },
+];
 const cardContainer = document.querySelector(".card-container");
 const available = document.querySelector("#available");
 const modalTitle = document.querySelector("#modal-title");
 const modal = document.querySelector("#modal");
-let currentCards = [];
+let currentCards = [...CARDS, ...CARDS];
 let isPaused = false;
-let counter = 15;
+let counter = 1;
 let isLose = false;
 
 function shuffle(array) {
@@ -58,6 +120,7 @@ function handleClick(e) {
           isPaused = false;
         }, 1500);
       }
+      console.log("counter", counter);
       counter -= 1;
       available.innerHTML = counter;
       if (counter === 0) {
@@ -68,8 +131,9 @@ function handleClick(e) {
       isPaused = false;
     }
 
+    // Validate is already win
     const isWin =
-      cardContainer.querySelectorAll(".card--guessed").length ===
+      cardContainer.querySelectorAll("card--guessed").length ===
       currentCards.length;
     if (isWin) {
       win();
@@ -77,11 +141,11 @@ function handleClick(e) {
   }
 }
 
-function drawCards(cards) {
+function drawCards() {
   cardContainer.innerHTML = "";
   available.innerHTML = counter;
 
-  shuffle(cards).forEach((el) => {
+  shuffle(currentCards).forEach((el) => {
     const card = document.createElement("div");
     card.className = "card";
     card.setAttribute("data-id", el.id);
@@ -89,7 +153,7 @@ function drawCards(cards) {
             <div class="card__front">
               <img
                 class="front__img"
-                src="${el.image}"
+                src="${el.img}"
                 alt="${el.name}"
               />
               <h6 class="card__name">${el.name}</h6>
@@ -107,38 +171,4 @@ function drawCards(cards) {
   });
 }
 
-// API request to fetch card data
-fetch("https://fedbackup-7b14.restdb.io/rest/memorygame", {
-  headers: {
-    "Content-Type": "application/json",
-    "x-apikey": "65c396ee9612a48827d496ad",
-  },
-})
-  .then((response) => response.json())
-  .then((data) => {
-    currentCards = data.map((card) => ({
-      id: card.id,
-      name: card.name.replace(/"/g, ""),
-      image: `https://fedbackup-7b14.restdb.io/media/${card.image[0]}`,
-    }));
-    // Fetch image URLs for each card
-    return Promise.all(currentCards.map((card) => fetch(card.image)));
-  })
-  .then((responses) =>
-    Promise.all(responses.map((response) => response.blob()))
-  )
-  .then((blobs) => Promise.all(blobs.map((blob) => URL.createObjectURL(blob))))
-  .then((urls) => {
-    // Replace image URLs with the fetched URLs
-    currentCards.forEach((card, index) => {
-      card.image = urls[index];
-    });
-    drawCards(currentCards);
-  })
-  .catch((error) => console.error("Error fetching data:", error))
-  .finally(() => {
-    // Additional code to run after the fetch operation, such as hiding a loading spinner or showing the game board
-    console.log("Fetch operation completed");
-    // For example, you can show the game board by setting its display property to "block"
-    document.querySelector(".content").style.display = "block";
-  });
+drawCards();
