@@ -82,7 +82,7 @@ body {
   height: 12rem;
   position: relative;
   transform-style: preserve-3d;
-  transition: transform 500ms ease-in-out;
+  transition: transform 0.5s;
   width: 100%;
 }
 
@@ -93,6 +93,10 @@ body {
 .card--guessed {
   background-color: var(--white-smoke);
   transform: rotateY(180deg) scale(0.9);
+}
+
+.card.flipped {
+  transform: rotateY(180deg);
 }
 
 .card__front,
