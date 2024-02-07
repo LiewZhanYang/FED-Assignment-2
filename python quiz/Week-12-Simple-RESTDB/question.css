@@ -4,11 +4,14 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+
+/* Set font family for the entire document */
 body {
   height: 100vh;
   background: url("https://codesnippets.ai/_next/image?url=%2Fassets%2Fimages%2Fposts%2Fgptspeedupworkflow.webp&w=1920&q=75");
   background-size: cover;
 }
+/* Styles for start screen and score container */
 .start-screen,
 .score-container {
   position: absolute;
@@ -20,24 +23,28 @@ body {
   align-items: center;
   justify-content: center;
 }
-
+/* Styles for welcome container */
 .welcome-container {
   background-color: #ffffff;
   padding: 2em;
   border-radius: 10px;
   text-align: center;
+  /* Add box shadow */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Styles for welcome container heading */
 .welcome-container h1 {
   margin-bottom: 0.5em;
 }
 
+/* Styles for instructions */
 .welcome-container .instructions {
   text-align: left;
   margin-bottom: 1em;
 }
 
+/* Styles for instructions paragraphs */
 .welcome-container .instructions p {
   font-weight: bold;
   margin-bottom: 0.5em;
@@ -54,6 +61,7 @@ body {
   padding-left: 1.4em;
 }
 
+/* Styles for instructions list item bullets */
 .welcome-container .instructions ul li:before {
   content: "";
   display: block;
@@ -70,6 +78,8 @@ body {
   /* Rest of your button styles */
 }
 
+/* Styles for buttons */
+/* General button styles */
 button {
   border: none;
   outline: none;
@@ -85,6 +95,8 @@ button {
 #restart {
   margin-top: 0.9em;
 }
+
+/* Styles for display container */
 #display-container {
   background-color: #ffffff;
   padding: 3.1em 1.8em;
@@ -97,6 +109,7 @@ button {
   left: 50%;
   border-radius: 0.6em;
 }
+/* Styles for header */
 .header {
   margin-bottom: 1.8em;
   display: flex;
@@ -105,6 +118,7 @@ button {
   padding-bottom: 0.6em;
   border-bottom: 0.1em solid #c0bfd2;
 }
+/* Styles for timer div */
 .timer-div {
   background-color: #e1f5fe;
   width: 7.5em;
@@ -114,6 +128,7 @@ button {
   justify-content: space-between;
   padding: 0.7em 1.8em;
 }
+/* Styles for question */
 .question {
   margin-bottom: 1.25em;
   font-weight: 600;
@@ -129,10 +144,12 @@ button {
   border: 1px solid #c0bfd2;
   border-radius: 0.3em;
 }
+/* Styles for disabled option div */
 .option-div:disabled {
   color: #000000;
   cursor: not-allowed;
 }
+/* Styles for next button */
 #next-button {
   font-size: 1em;
   margin-top: 1.5em;
