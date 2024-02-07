@@ -23,10 +23,42 @@ document.addEventListener("DOMContentLoaded", function () {
     initial();
   });
 
-  restart.addEventListener("click", function () {
-    initial();
-    displayContainer.classList.remove("hide");
+  document
+    .getElementById("start-button")
+    .addEventListener("click", function () {
+      // Hide the question count display
+
+      var nextButton = document.getElementById("next-button"); // Ensure this is the correct ID
+      if (nextButton) {
+        nextButton.style.display = "none";
+
+        setTimeout(function () {
+          nextButton.style.display = "block"; // Use 'inline', 'inline-block', or 'block', as appropriate
+        }, 2000);
+      }
+
+      // Hide the timer display
+      var timerDisplay = document.querySelector(".timer-div"); // Adjust selector as necessary
+      if (timerDisplay) {
+        timerDisplay.style.display = "none";
+
+        setTimeout(function () {
+          timerDisplay.style.display = "block"; // Use 'inline', 'inline-block', or 'block', as appropriate
+        }, 2000);
+      }
+
+      // ...rest of your start button click handling code...
+    });
+
+  document.getElementById("continue").addEventListener("click", function () {
+    window.location.href = "python quizWeek-12-Simple-RESTDBinform.html"; // Change to your next page URL
+  });
+
+  document.getElementById("continue").addEventListener("click", function () {
+    // Hide the score container and show another part of your app
     scoreContainer.classList.add("hide");
+    // For example, show the main menu again or move to a different part of your app
+    mainMenu.classList.remove("hide"); // Assuming you have a mainMenu element to show
   });
 
   nextBtn.addEventListener("click", function () {
