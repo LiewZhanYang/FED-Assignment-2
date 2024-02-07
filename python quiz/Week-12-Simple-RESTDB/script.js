@@ -14,8 +14,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
       let name = document.getElementById("name").value;
       let email = document.getElementById("email").value;
-      let score = localStorage.getItem("quizScore");
+      let score = window.quizScore ? Number(window.quizScore) : 0;
 
+      if (isNaN(score)) {
+        console.error("Score is not a number", score);
+        // Handle error: inform the user, abort the submission, etc.
+        return;
+      }
       // Prepare the data to be sent in the POST request
       let jsondata = {
         Name: name,
@@ -55,6 +60,10 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .catch((error) => {
           console.error("Error posting data:", error);
+
+          if (error.name === "ValidationError") {
+            console.error("Validation errors:", error.list);
+          }
         });
     });
 

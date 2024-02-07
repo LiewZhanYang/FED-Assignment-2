@@ -186,10 +186,12 @@ function handleNextQuestion() {
 }
 
 function displayResults() {
+  console.log("Displaying results, scoreCount:", scoreCount); // Debugging line
   displayContainer.classList.add("hide");
   scoreContainer.classList.remove("hide");
   userScore.textContent = `Your score is ${scoreCount} out of ${quizArray.length}`;
 }
+
 
 window.onload = function () {
   startScreen.classList.remove("hide");
@@ -222,7 +224,7 @@ function finishQuiz() {
   let score = calculateScore(); // Your function that calculates the score
 
   // Store the score in localStorage
-  localStorage.setItem("quizScore", score);
+  localStorage.setItem(score);
 
   // Display the score page
   displayScorePage(score); // Your function that displays the score page
