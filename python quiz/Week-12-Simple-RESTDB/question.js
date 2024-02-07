@@ -197,44 +197,33 @@ window.onload = function () {
   scoreContainer.classList.add("hide");
 };
 
-function getScore() {
-  // Assuming scoreCount holds the final score
-  return scoreCount;
+// Function to calculate the quiz score
+// This is just a placeholder; you need to define how the score is calculated based on your quiz logic
+function calculateScore() {
+  // ... logic to calculate score based on answers ...
+  return scoreCount; // Assuming scoreCount is the variable that holds the calculated score
 }
 
-function postScoreToAPI(score) {
-  const API_URL =
-    "https://fedassignment2ccgame-ef3b.restdb.io/rest/scorepythonquiz"; // Replace with your actual API URL
-  const API_KEY = "65b1d9dda2399ae3ac4d588e"; // Replace with your actual API key, if needed
+// Function to display the score page
+// This function will hide the quiz and show the score results
+function displayScorePage(score) {
+  // Assuming you have HTML elements with IDs 'quiz' and 'scorePage' respectively
+  document.getElementById("quiz").style.display = "none"; // Hide the quiz
+  document.getElementById("scorePage").style.display = "block"; // Show the score page
 
-  // The data you want to send in the POST request
-  const postData = {
-    score: score,
-  };
-
-  // The POST request
-  fetch(API_URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "x-apikey": API_KEY, // Include the API key in the header, if required
-    },
-    body: JSON.stringify(postData), // Convert the JavaScript object to a string
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log("Success:", data);
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
+  // Update the score display
+  document.getElementById(
+    "userScore"
+  ).textContent = `Your score is ${score} out of ${quizArray.length}`;
 }
 
-function displayResults() {
-  displayContainer.classList.add("hide");
-  scoreContainer.classList.remove("hide");
-  userScore.textContent = `Your score is ${scoreCount} out of ${quizArray.length}`;
+function finishQuiz() {
+  // Calculate the score
+  let score = calculateScore(); // Your function that calculates the score
 
-  // Now post the score
-  postScoreToAPI(scoreCount);
+  // Store the score in localStorage
+  localStorage.setItem("quizScore", score);
+
+  // Display the score page
+  displayScorePage(score); // Your function that displays the score page
 }

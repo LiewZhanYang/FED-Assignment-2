@@ -14,12 +14,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
       let name = document.getElementById("name").value;
       let email = document.getElementById("email").value;
+      let score = localStorage.getItem("quizScore");
 
       // Prepare the data to be sent in the POST request
       let jsondata = {
         Name: name,
         Email: email,
-        Score: 0, // Assuming you want to set a default score or get it from another input field
+        Score: score, // Assuming you want to set a default score or get it from another input field
       };
 
       // Prepare the POST request settings
