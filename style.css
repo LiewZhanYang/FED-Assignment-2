@@ -179,13 +179,14 @@ body {
 .section-title {
   color: #686868;
   margin-bottom: 16px; /* space below the title */
-  font-size: 70px;
+  font-size: 14vw;
 }
 
 .section-subtitle {
   color: #000;
   margin-bottom: 32px; /* space below the subtitle */
-  font-size: 30px; /* size that matches design */
+  font-size: 6vw; /* size that matches design */
+  border: 2px dotted red;
 }
 
 .section-subtitle .span {
@@ -194,7 +195,7 @@ body {
 
 .game-slashes {
   color: var(--marigold);
-  font-size: 50px;
+  font-size: 4vw;
   border: 2px dotted red;
 }
 
@@ -224,7 +225,7 @@ body {
   font-family: Verdana, Arial, Helvetica, sans-serif;
   font-weight: bold;
   margin: 20px 0; /* space around the title */
-  font-size: calc(25px + 5vw);
+  font-size: calc(5px + 9vw);
   border: 2px dotted red;
 }
 
@@ -268,11 +269,13 @@ body {
 
 .line {
   color: var(--marigold);
-  width: 60%;
-  font-size: 4vw;
+  width: 80%;
+  font-size: 2.6vw;
   margin-top: 90px;
   display: block;
   border: 2px dotted red;
+  margin-left: auto; /* Centers the element horizontally */
+  margin-right: auto; /* by automatically adjusting the left and right margins */
 }
 
 /* aboutus */
