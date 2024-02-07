@@ -264,11 +264,6 @@ body {
   display: block;
 }
 
-
-
-
-
-
 /* aboutus */
 
 /* This will center the 'About Us' heading and give space for the content below */
@@ -378,3 +373,20 @@ body {
 
 /* footer */
 
+footer {
+  background-color: #303030; /* This is the hex code for black */
+  color: #fff; /* This changes the text color to white for contrast */
+}
+
+/* Specific targeting for footer elements to override default styles */
+.container1 footer a,
+
+.container1 footer .nav-link,
+.container1 footer .text-body-secondary {
+  color: #e8e8e8 !important; /* Overriding with white color */
+}
+
+.container1 footer h5 {
+  font-size: 1.7rem;
+  color: var(--marigold);
+}
