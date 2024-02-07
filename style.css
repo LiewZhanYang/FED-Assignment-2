@@ -188,6 +188,7 @@ body {
 .game-slashes {
   color: var(--marigold);
   font-size: 50px;
+  border: 2px dotted red;
 }
 
 /* Specific container for the games section to avoid flexbox */
@@ -200,7 +201,7 @@ body {
 
 .game-highlight {
   background: #f0f0f0;
-  width: 600px; /* Adjust width as needed */
+  width: 60%; /* Adjust width as needed */
   height: 300px; /* Adjust height as needed to maintain a square */
   display: flex;
   flex-direction: column;
@@ -259,9 +260,10 @@ body {
 
 .line {
   color: var(--marigold);
-  font-size: 30px;
+  font-size: calc(10px + 1.6vw);
   margin-top: 90px;
   display: block;
+  border: 2px dotted red;
 }
 
 /* aboutus */
@@ -269,6 +271,7 @@ body {
 /* This will center the 'About Us' heading and give space for the content below */
 .about-us {
   display: flex;
+  width: auto;
   flex-direction: column;
   align-items: center;
   padding: 50px 0;
@@ -380,7 +383,6 @@ footer {
 
 /* Specific targeting for footer elements to override default styles */
 .container1 footer a,
-
 .container1 footer .nav-link,
 .container1 footer .text-body-secondary {
   color: #e8e8e8 !important; /* Overriding with white color */
