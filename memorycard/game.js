@@ -66,10 +66,9 @@ const modalTitle = document.querySelector("#modal-title");
 const modal = document.querySelector("#modal");
 let currentCards = [...CARDS, ...CARDS];
 let isPaused = false;
-let counter = CARDS.length + 10;
+let counter = 1;
 let isLose = false;
 
-// Fisher--Yates Algorithm -- https://bost.ocks.org/mike/shuffle/
 function shuffle(array) {
   let counter = array.length,
     temp,
@@ -92,7 +91,7 @@ function win() {
 
 function lose() {
   isLose = true;
-  modalTitle.innerHTML = "You lose 😢😩";
+  modalTitle.innerHTML = "Thanks for playing 🙌";
   modal.classList.add("modal--open");
 }
 
@@ -162,8 +161,8 @@ function drawCards() {
             <div class="card__back">
               <img
                 class="back__img"
-                src="file:///C:/Users/User/Downloads/06ba5ddc-3afc-43d0-aa85-9663f27cc12e.webp"
-                alt="Thought"
+                style="background-image: url(image\memory-image.webp);
+                alt="blank"
               />
             </div>
           `;
@@ -171,13 +170,5 @@ function drawCards() {
     cardContainer.appendChild(card);
   });
 }
-
-document.querySelector("#play-again").addEventListener("click", function () {
-  modal.classList.remove("modal--open");
-  isPaused = false;
-  isLose = false;
-  counter = CARDS.length + 10;
-  drawCards();
-});
 
 drawCards();
