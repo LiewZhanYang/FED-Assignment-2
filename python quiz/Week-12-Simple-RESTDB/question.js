@@ -168,3 +168,45 @@ window.onload = function () {
   displayContainer.classList.add("hide");
   scoreContainer.classList.add("hide");
 };
+
+function getScore() {
+  // Assuming scoreCount holds the final score
+  return scoreCount;
+}
+
+function postScoreToAPI(score) {
+  const API_URL =
+    "https://fedassignment2ccgame-ef3b.restdb.io/rest/scorepythonquiz"; // Replace with your actual API URL
+  const API_KEY = "65b1d9dda2399ae3ac4d588e"; // Replace with your actual API key, if needed
+
+  // The data you want to send in the POST request
+  const postData = {
+    score: score,
+  };
+
+  // The POST request
+  fetch(API_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "x-apikey": API_KEY, // Include the API key in the header, if required
+    },
+    body: JSON.stringify(postData), // Convert the JavaScript object to a string
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("Success:", data);
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+}
+
+function displayResults() {
+  displayContainer.classList.add("hide");
+  scoreContainer.classList.remove("hide");
+  userScore.textContent = `Your score is ${scoreCount} out of ${quizArray.length}`;
+
+  // Now post the score
+  postScoreToAPI(scoreCount);
+}
