@@ -6,7 +6,8 @@
 }
 body {
   height: 100vh;
-  background: linear-gradient(184deg, #8754ff, #8e2de2);
+  background: url("");
+  background-size: cover;
 }
 .start-screen,
 .score-container {
@@ -19,6 +20,56 @@ body {
   align-items: center;
   justify-content: center;
 }
+
+.welcome-container {
+  background-color: #ffffff;
+  padding: 2em;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-container h1 {
+  margin-bottom: 0.5em;
+}
+
+.welcome-container .instructions {
+  text-align: left;
+  margin-bottom: 1em;
+}
+
+.welcome-container .instructions p {
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+
+.welcome-container .instructions ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.welcome-container .instructions ul li {
+  margin-bottom: 0.3em;
+  position: relative;
+  padding-left: 1.4em;
+}
+
+.welcome-container .instructions ul li:before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0.9em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #8754ff;
+}
+
+#start-button {
+  /* Rest of your button styles */
+}
+
 button {
   border: none;
   outline: none;
