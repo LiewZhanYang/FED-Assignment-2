@@ -66,7 +66,7 @@ const modalTitle = document.querySelector("#modal-title");
 const modal = document.querySelector("#modal");
 let currentCards = [...CARDS, ...CARDS];
 let isPaused = false;
-let counter = 1;
+let counter = 22;
 let isLose = false;
 
 function shuffle(array) {
@@ -91,7 +91,7 @@ function win() {
 
 function lose() {
   isLose = true;
-  modalTitle.innerHTML = "Thanks for playing 🙌";
+  modalTitle.innerHTML = "Thanks for playing 🙌🙌🙌🙌🙌🙌";
   modal.classList.add("modal--open");
 }
 

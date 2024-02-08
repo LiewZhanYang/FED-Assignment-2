@@ -4,6 +4,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const APIKEY = "65b1d9dda2399ae3ac4d588e";
   const BASE_URL =
     "https://fedassignment2ccgame-ef3b.restdb.io/rest/scorepythonquiz";
+  const successAnimation = document.getElementById("success");
+
+  // Initially hide the success message and Lottie animation
+  
   getHallOfFame();
 
   //[STEP 1]: Create our submit form listener
@@ -59,6 +63,8 @@ document.addEventListener("DOMContentLoaded", function () {
           console.log(data);
           // Optional: Update the UI to indicate success
           getHallOfFame(); // Refresh the Hall of Fame list
+          successAnimation.style.display = "block"; // Show the Lottie animation
+          
         })
         .catch((error) => {
           console.error("Error posting data:", error);

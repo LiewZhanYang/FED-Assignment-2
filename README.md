@@ -38,10 +38,23 @@ In addition, you may also use this section to discuss plans for additional featu
 Features Left to Implement
 Another feature idea
 ## Technologies Used
-In this section, you should mention all of the languages, frameworks, libraries, and any other tools that you have used to construct this project. For each, provide its name, a link to its official site and a short sentence of why it was used.
+### Bootstrap
+With Bootstrap, we can easily make our websites look nice without having to design everything from scratch. It helps keep things organized and consistent across different screens.
+### HTML
+Learning HTML allows us to create our own web pages with headings, paragraphs, images, and links. It's the foundation of web development.
+### CSS
+By using CSS, we can make our web pages look attractive and visually appealing. We can change fonts, colors, and layouts to match the preferences.
+### JavaScript
+JavaScript allows us to make our websites more engaging and interactive. We can create games, quizzes, and other fun features to keep visitors interested
+### JSON
+JSON makes it easy for us to work with data on our websites. We can store information and retrieve it when needed, like keeping track of scores in a game.
+### RestDB
+RestDB simplifies the process of storing and accessing data for our' websites. We can create databases without needing to know complicated database languages.
+### Lottie Animation
+Lottie lets us add cool animations to our websites without needing to create them from scratch. It makes the website more interesting and engaging for visitors.
+### Github
+GitHub allows me to collaborate with classmates on coding projects. I can share my work, give feedback, and learn from each other's code.
 
-JQuery
-The project uses JQuery to simplify DOM manipulation.
 
 ## Credits
 Content
