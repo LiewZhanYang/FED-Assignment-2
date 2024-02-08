@@ -6,7 +6,7 @@ body {
 }
 
 .hall-of-fame {
-  background-color: #f7f7f7; /* Light background for the table */
+  background-color: #a36002; /* Light background for the table */
   padding: 20px;
   width: 100%; /* Full width of the container */
   box-sizing: border-box; /* Padding included in the width */
@@ -34,14 +34,14 @@ body {
 
 #leaderboard th,
 #leaderboard td {
-  border: 1px solid #ddd; /* Light border for the cells */
+  border: 1px solid #000000; /* Light border for the cells */
   padding: 8px;
   text-align: left;
   word-wrap: break-word; /* Ensures text wraps inside cells */
 }
 
 #leaderboard th {
-  background-color: #eee; /* Background color for headers */
+  background-color: #3f3f3f; /* Background color for headers */
 }
 
 /* Adjust the form container size if necessary */
