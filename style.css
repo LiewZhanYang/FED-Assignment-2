@@ -102,14 +102,12 @@ body {
 /* skip first the hero */
 
 .hero {
-  border: 2px dotted red;
   --section-padding: 60px;
   margin-block-start: 0; /* Changed from 84px to 0 to remove the top margin */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   text-align: center;
-  width: 100%;
   min-height: 100vh;
   display: grid;
   align-items: center;
@@ -117,7 +115,6 @@ body {
 }
 
 .hero-content {
-  border: 2px dotted red;
   text-align: left; /* Aligns text to the left */
   max-width: 1200px; /* Adjust the max width as needed */
   margin-left: auto; /* Keeps the content centered if less than max width */
@@ -127,17 +124,13 @@ body {
 
 .hero-subtitle {
   color: var(--marigold);
-  width: 70%;
-  font-size: 2.6vw;
+  font-size: 20px;
   font-weight: bold;
   text-transform: uppercase;
-  border: 2px dotted red;
 }
 
 .hero-title {
-  font-size: 6vw;
-  width: 70%;
-  border: 2px dotted red;
+  font-size: 90px;
   font-weight: bold;
   font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -148,10 +141,7 @@ body {
 
 .hero-text {
   color: var(--light-gray-2);
-  margin-block-end: 2rem; /* Adjusted from 100% to a more reasonable value */
-  width: 70%;
-  font-size: calc(6px + 1vw);
-  border: 2px dotted red;
+  margin-block-end: 45px;
 }
 
 .read-more-button {
@@ -160,7 +150,6 @@ body {
   font-weight: bold; /* Make the text bold */
   background-color: transparent; /* Transparent background */
   color: #ffffff; /* White text, adjust color as needed */
-  font-size: 1vw;
   text-transform: uppercase; /* Uppercase text */
   transition: background-color 0.3s ease; /* Smooth background transition for hover effect */
 }
@@ -183,14 +172,13 @@ body {
 .section-title {
   color: #686868;
   margin-bottom: 16px; /* space below the title */
-  font-size: 8vw;
+  font-size: 70px;
 }
 
 .section-subtitle {
   color: #000;
   margin-bottom: 32px; /* space below the subtitle */
-  font-size: 5vw; /* size that matches design */
-  border: 2px dotted red;
+  font-size: 30px; /* size that matches design */
 }
 
 .section-subtitle .span {
@@ -199,8 +187,7 @@ body {
 
 .game-slashes {
   color: var(--marigold);
-  font-size: 4vw;
-  border: 2px dotted red;
+  font-size: 50px;
 }
 
 /* Specific container for the games section to avoid flexbox */
@@ -213,7 +200,7 @@ body {
 
 .game-highlight {
   background: #f0f0f0;
-  width: 60%; /* Adjust width as needed */
+  width: 600px; /* Adjust width as needed */
   height: 300px; /* Adjust height as needed to maintain a square */
   display: flex;
   flex-direction: column;
@@ -229,8 +216,7 @@ body {
   font-family: Verdana, Arial, Helvetica, sans-serif;
   font-weight: bold;
   margin: 20px 0; /* space around the title */
-  font-size: 5vw;
-  border: 2px dotted blue;
+  font-size: 50px;
 }
 
 .game-title .span {
@@ -261,7 +247,7 @@ body {
 
 .game-description {
   color: #000;
-  font-size: calc(8px + 1.6vw);
+  font-size: 18px;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   line-height: 1.6;
   margin-bottom: 0; /* no space below the paragraph */
@@ -273,13 +259,9 @@ body {
 
 .line {
   color: var(--marigold);
-  width: 80%;
-  font-size: 2.6vw;
+  font-size: 30px;
   margin-top: 90px;
   display: block;
-  border: 2px dotted red;
-  margin-left: auto; /* Centers the element horizontally */
-  margin-right: auto; /* by automatically adjusting the left and right margins */
 }
 
 /* aboutus */
@@ -287,7 +269,6 @@ body {
 /* This will center the 'About Us' heading and give space for the content below */
 .about-us {
   display: flex;
-  width: auto;
   flex-direction: column;
   align-items: center;
   padding: 50px 0;
