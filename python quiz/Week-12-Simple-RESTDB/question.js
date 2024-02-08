@@ -55,9 +55,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document.getElementById("continue").addEventListener("click", function () {
     // Hide the score container and show another part of your app
-    scoreContainer.classList.add("hide");
+    document.querySelector(".score-container").classList.add("hide");
     // For example, show the main menu again or move to a different part of your app
-    mainMenu.classList.remove("hide"); // Assuming you have a mainMenu element to show
+    document.getElementById("hallofframe").classList.remove("hide"); // Assuming you have a mainMenu element to show
+    document.querySelector(".record-form").style.display = "none";
+    document.querySelector("#add-update-msg").style.display = "none";
   });
 
   nextBtn.addEventListener("click", function () {

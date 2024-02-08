@@ -13,6 +13,14 @@ body {
   margin-bottom: 20px; /* Space below the table */
 }
 
+#hallofframe {
+  display: none;
+}
+
+.hide {
+  display: none;
+}
+
 .hall-of-fame h2 {
   text-align: center;
   margin-bottom: 20px; /* Space below the title */
@@ -83,4 +91,8 @@ input[type="submit"]:hover {
   opacity: 0.8;
 }
 
-/* Add additional styling as needed */
+.record-form,
+#add-update-msg {
+    display: none;
+}
+
