@@ -85,6 +85,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return response.json();
       })
       .then((data) => {
+        data.sort((a,b) => b.Score - a.Score);
         // Empty string to hold our HTML content
         let content = "";
         // Process the data and update the table
