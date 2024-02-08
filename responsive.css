@@ -1,0 +1,188 @@
+/* Container */
+.container {
+  padding: 5px 10px; /* Adjust padding for smaller screens */
+}
+
+/* Navbar adjustments for mobile */
+.navbar,
+.navbar-brand,
+.navbar-collapse,
+.navbar-nav .nav-item .nav-link {
+  /* Adjust font sizes and paddings for smaller screens */
+  font-size: 0.8rem;
+  padding: 0.25rem 0.5rem;
+}
+
+/* Hero Section */
+.hero {
+  padding-top: 0; /* Adjust for smaller screens */
+}
+
+.hero-content,
+.hero-subtitle,
+.hero-title,
+.hero-text {
+  /* Scale down font sizes for smaller devices */
+  font-size: calc(1rem + 1vw);
+}
+
+.read-more-button {
+  padding: 5px 10px; /* Adjust button size for smaller screens */
+}
+
+/* Games Section */
+.games-section,
+.section-title,
+.section-subtitle,
+.game-slashes,
+.games-container,
+.game-highlight,
+.game-title,
+.game-image img,
+.game-tag,
+.game-description {
+  /* Adjust layouts and font sizes for smaller screens */
+  font-size: calc(0.8rem + 1vw);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* About Us Section */
+.about-us,
+.about-us h2,
+.about-us__container,
+.about-us__logo img,
+.about-us__content,
+.about-us__content p,
+.about-us__stats-container,
+.stat,
+.stat__number,
+.stat__text {
+  /* Adjust text sizes, container layouts for responsiveness */
+  font-size: calc(0.8rem + 1vw);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Footer */
+footer,
+.container1 footer a,
+.container1 footer .nav-link,
+.container1 footer .text-body-secondary,
+.container1 footer h5 {
+  /* Adjust footer content for smaller screens */
+  font-size: 0.75rem;
+}
+
+/* Media Queries */
+
+/* Responsive adjustments for the complete CSS */
+
+/* Adjustments for mobile devices */
+@media screen and (max-width: 600px) {
+  /* General adjustments for smaller screens */
+  .container {
+    padding: 5px 10px;
+  }
+
+  .navbar-brand {
+    font-size: 1.5rem;
+  }
+
+  .navbar-nav .nav-item .nav-link {
+    padding: 0.25rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle,
+  .section-title,
+  .section-subtitle,
+  .game-title {
+    font-size: 1.2rem;
+  }
+
+  .games-container,
+  .about-us__container {
+    flex-direction: column;
+  }
+
+  .game-highlight {
+    width: 90%; /* Adjust for screen size */
+    height: auto; /* Adjust for content */
+  }
+
+  .about-us__logo img,
+  .about-us__content {
+    text-align: center;
+    margin: 10px 0;
+  }
+
+  .stat {
+    flex-basis: 100%; /* Each stat takes full width */
+  }
+}
+
+/* Adjustments for tablets */
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+  .hero-title {
+    font-size: 4rem;
+  }
+
+  .section-title,
+  .game-title {
+    font-size: 2rem;
+  }
+
+  .navbar-nav .nav-item .nav-link {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+
+  .game-highlight {
+    width: 80%;
+  }
+
+  .about-us__container {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .stat {
+    flex-basis: 50%; /* Two stats per row */
+  }
+}
+
+/* Adjustments for desktops and larger screens */
+@media screen and (min-width: 1025px) {
+  .hero-title {
+    font-size: 90px; /* Original size */
+  }
+
+  .section-title,
+  .game-title {
+    font-size: 70px; /* Adjusted for clarity */
+  }
+
+  .navbar-nav {
+    gap: 5rem; /* More space between nav items */
+  }
+
+  .game-highlight {
+    width: 600px; /* Original width */
+    height: 300px; /* Original height */
+  }
+
+  .about-us__container {
+    justify-content: space-between;
+  }
+
+  .stat {
+    flex-basis: 25%; /* Four stats per row for larger screens */
+  }
+}

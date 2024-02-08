@@ -259,7 +259,7 @@ body {
 
 .line {
   color: var(--marigold);
-  font-size: 30px;
+  font-size: 2vw;
   margin-top: 90px;
   display: block;
 }
