@@ -30,15 +30,24 @@ Non-Competitive: We ensured our games aren't overly competitive to prevent frust
 Engagement: We focused on creating games that students would find enjoyable and would choose to play when they needed a break.
 
 ## Features
-In this section, you should go over the different parts of your project, and describe each in a sentence or so.
+Welcome to our gaming website! We have three awesome games for you to enjoy:
 
-Existing Features
-Feature 1 - allows users X to achieve Y, by having them fill out Z
-...
-In addition, you may also use this section to discuss plans for additional features to be implemented in the future:
+### Python Basic Quiz:
+Test your Python knowledge with our quiz! There are 10 questions, and they come from an API we made with RestDB. Compete to be the best on our leaderboard, called the "Hall of Fame."
 
-Features Left to Implement
-Another feature idea
+### Memory Game:
+Exercise your brain with our memory game! It's relaxing and helps you strengthen your memory.
+
+### Minesweeper:
+Get ready for excitement with our Minesweeper game! Race against time to find the mines and finish the grid. You can adjust the difficulty to challenge yourself.
+
+Don't forget to check out our game tutorials and rules in the footer if you're new and want to learn more!
+
+
+
+
+
+
 ## Technologies Used
 ### Bootstrap
 With Bootstrap, we can easily make our websites look nice without having to design everything from scratch. It helps keep things organized and consistent across different screens.
