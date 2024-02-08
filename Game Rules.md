@@ -1,3 +1,5 @@
+<!-- Create by Zhan Yang for Mines Game Explaination -->
+
 # MinesSweeper
 Minesweeper is a classic computer game that involves uncovering hidden mines on a grid while avoiding them. The goal is to reveal all the safe cells without detonating any mines.
 
