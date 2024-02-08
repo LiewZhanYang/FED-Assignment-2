@@ -195,11 +195,19 @@ button {
 }
 
 .score-container {
+  display: flex;
   text-align: center;
   background: #f2f2f2; /* Light grey background */
   padding: 40px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s ease;
+}
+
+.score-container.small-size {
+  max-height: 100px; /* Set a max-height that works for your design */
+  overflow: hidden; /* Hide the overflow content */
+  /* Adjust padding, margin, etc., as needed to make it smaller */
 }
 
 .score-heading {
@@ -245,4 +253,3 @@ button {
 }
 
 /* Add this style to your CSS file or within a <style> tag in the <head> */
-

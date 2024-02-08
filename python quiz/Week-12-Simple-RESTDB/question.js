@@ -53,14 +53,18 @@ document.addEventListener("DOMContentLoaded", function () {
       // ...rest of your start button click handling code...
     });
 
-  document.getElementById("continue").addEventListener("click", function () {
-    // Hide the score container and show another part of your app
-    document.querySelector(".score-container").classList.add("hide");
-    // For example, show the main menu again or move to a different part of your app
-    document.getElementById("hallofframe").classList.remove("hide"); // Assuming you have a mainMenu element to show
-    document.querySelector(".record-form").style.display = "none";
-    document.querySelector("#add-update-msg").style.display = "none";
-  });
+  document.getElementById('continue').addEventListener('click', function() {
+  // Hide the score container
+  document.querySelector('.score-page').style.display = 'none';
+
+  // Show the Hall of Fame and the record form
+  document.getElementById('hallofframe').style.display = 'block'; 
+  document.querySelector('.record-form').style.display = 'block';
+
+  // Optional: If you want to animate the appearance, you can add a class with transition effects
+  document.getElementById('hallofframe').classList.add('transition-in');
+  document.querySelector('.record-form').classList.add('transition-in');
+});
 
   nextBtn.addEventListener("click", function () {
     handleNextQuestion();
