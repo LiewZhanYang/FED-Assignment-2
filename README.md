@@ -68,9 +68,23 @@ GitHub allows me to collaborate with classmates on coding projects. I can share 
 
 
 ## Credits
-Content
-The text for section Y was copied from the Wikipedia article Z
-Media
-The photos used in this site were obtained from ...
-Acknowledgements
+* lottie
+* bootstrap
+* https://github.com/MariiaAntoniuk/Gamics
+* https://github.com/mkole/emoji-minesweeper?tab=readme-ov-file
+* https://codingtorque.com/
+* https://github.com/np-overflow/2024oh-grp3/blob/main/backend/main.py
+* https://themeforest.net/search/gaming
+* chatgpt
+* https://res.cloudinary.com/henryzarza/image/upload/v1601745355/General%20assets/thought_pr1pzv.png
+* DALLE-3
+* https://w7.pngwing.com/pngs/570/659/png-transparent-microsoft-minesweeper-land-mine-minesweeper-classic-fr-windows-minesweeper-video-game-snout-minesweeper.png
+* https://media.licdn.com/dms/image/D5612AQFgUrjVC7gmXA/article-cover_image-shrink_720_1280/0/1691042007787?e=2147483647&v=beta&t=nAP13_C-B9sWHSvSLsB7PMr7iBssQFEHoE-73sU6usc
+* https://www.youtube.com/watch?v=XKHEtdqhLK8
+* https://www.youtube.com/watch?v=dvvrOeITzG8
+* https://codingtorque.com/10-games-to-create-using-javascript-with-source-code/#typing-speed-test-using-java-script
+
+###Created by Zhan Yang
+
+
 I received inspiration for this project from X
