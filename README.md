@@ -84,7 +84,7 @@ GitHub allows me to collaborate with classmates on coding projects. I can share 
 * https://www.youtube.com/watch?v=dvvrOeITzG8
 * https://codingtorque.com/10-games-to-create-using-javascript-with-source-code/#typing-speed-test-using-java-script
 
-###Created by Zhan Yang
+### README Created by Zhan Yang
 
 
 
