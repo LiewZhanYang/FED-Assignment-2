@@ -17,7 +17,10 @@ let quizArray = []; // Will be filled with fetched data
 
 // Fetch and setup quiz
 document.addEventListener("DOMContentLoaded", function () {
+  var lottieAnimation = document.getElementById("success");
+
   startButton.addEventListener("click", function () {
+    lottieAnimation.style.display = "block";
     startScreen.classList.add("hide");
     displayContainer.classList.remove("hide");
     initial();
@@ -219,3 +222,22 @@ function finishQuiz() {
   // Store the score in localStorage
   localStorage.setItem("quizScore", scoreCount);
 }
+
+// Place this script at the bottom of your <body> or in your external JavaScript file
+
+document.addEventListener("DOMContentLoaded", function () {
+  var startButton = document.getElementById("start-button");
+  var lottieAnimation = document.getElementById("success");
+
+  startButton.addEventListener("click", function () {
+    // Show the Lottie animation
+    lottieAnimation.style.display = "block";
+
+    // Hide the Lottie animation after 2 seconds
+    setTimeout(function () {
+      lottieAnimation.style.display = "none";
+    }, 2000);
+
+    // Add your code here to start the quiz
+  });
+});

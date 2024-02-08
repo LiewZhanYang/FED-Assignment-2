@@ -91,7 +91,7 @@ function win() {
 
 function lose() {
   isLose = true;
-  modalTitle.innerHTML = "Thanks for playing 🙌";
+  modalTitle.innerHTML = "Thanks for playing 🙌🙌🙌🙌🙌🙌";
   modal.classList.add("modal--open");
 }
 

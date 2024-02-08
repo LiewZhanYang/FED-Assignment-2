@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="question.css" />
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest"></script>
+
   </head>
   <body>
     <!-- Further code here -->
@@ -21,7 +23,18 @@
           </ul>
         </div>
         <!-- Start game button -->
+        <div class="alert alert-success" role="alert" id="add-update-msg">
+          <lottie-player
+            id="success"
+            autoplay
+            loop
+            mode="normal"
+            src="/lottie/tick.json"
+            style="display: none; width: 100px; height: 100px;">
+          </lottie-player>
+        </div>
         <button id="start-button">Start Game</button>
+        
       </div>
     </div>
 
@@ -58,6 +71,10 @@
       </div>
     </div>
 
+    
+
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest"></script>
     <script src="question.js"></script>
+    
   </body>
 </html>
