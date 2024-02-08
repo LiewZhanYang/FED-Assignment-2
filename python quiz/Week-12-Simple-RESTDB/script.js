@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const successAnimation = document.getElementById("success");
 
   // Initially hide the success message and Lottie animation
-  
+
   getHallOfFame();
 
   //[STEP 1]: Create our submit form listener
@@ -15,18 +15,13 @@ document.addEventListener("DOMContentLoaded", function () {
     .getElementById("recordForm")
     .addEventListener("submit", function (e) {
       e.preventDefault(); // Prevent default form submission
-      const scoreKey = "quizScore";
-      localStorage.setItem(scoreKey, scoreCount);
 
       let name = document.getElementById("name").value;
       let email = document.getElementById("email").value;
-      let score = parseInt(localStorage.getItem("quizScore"), 10);
+      let score = scoreCount;
 
-      if (isNaN(score)) {
-        console.error("Score is not a number", score);
-        // Handle error: inform the user, abort the submission, etc.
-        return;
-      }
+      console.log("Type of scoreCount:", score);
+
       // Prepare the data to be sent in the POST request
       let jsondata = {
         Name: name,
@@ -64,7 +59,6 @@ document.addEventListener("DOMContentLoaded", function () {
           // Optional: Update the UI to indicate success
           getHallOfFame(); // Refresh the Hall of Fame list
           successAnimation.style.display = "block"; // Show the Lottie animation
-          
         })
         .catch((error) => {
           console.error("Error posting data:", error);

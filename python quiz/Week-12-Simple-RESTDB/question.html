@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="question.css" />
+    <link rel="stylesheet" href="styles.css" />
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest"></script>
-
+  
   </head>
   <body>
     <!-- Further code here -->
@@ -68,14 +69,72 @@
         <h2 class="score-heading">Your Score:</h2>
         <div class="user-score" id="user-score">5 out of 10</div>
         <!-- Continue button to proceed further -->
-        <a href="inform.html" button id="continue">Continue</button>
+        <a href="#halloffame" button id="continue">Continue</button>
       </div>
     </div>
+
+    <!-- hallofframe -->
+
+    <div class="hall-of-fame" id="hallofframe">
+      <h2>Hall Of Fame</h2>
+      <!-- Leaderboard table -->
+      <table id="leaderboard">
+        <thead>
+          <tr>
+            <!-- Table headers -->
+            <th>Name</th>
+            <th>Email</th>
+            <th>Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Records will be inserted here using JavaScript -->
+        </tbody>
+      </table>
+    </div>
+
+    <div
+      class="alert alert-success"
+      role="alert"
+      id="add-update-msg"
+      style="display: none"
+    >
+      <lottie-player
+        autoplay
+        loop
+        mode="normal"
+        src="/lottie/tick.json"
+        style="width: 100px; height: 100px"
+        id="success"
+      >
+        style="width: 100px; height: 100px;">
+      </lottie-player>
+      Record successfully added
+    </div>
+    <div class="record-form">
+      <h3>Leave your record</h3>
+      <!-- Form for submitting records -->
+      <form id="recordForm">
+        <input type="text" id="name" name="name" placeholder="Name" required />
+        <!-- Input field for email -->
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Email"
+          required
+        />
+        <input type="submit" value="Enter" />
+      </form>
+    </div>
+
+
+    
 
     
 
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest"></script>
     <script src="question.js"></script>
-    
+    <script src="script.js"></script>   
   </body>
 </html>
