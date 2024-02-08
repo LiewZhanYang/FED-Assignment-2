@@ -6,7 +6,7 @@ body {
 }
 
 .hall-of-fame {
-  background-color: #a36002; /* Light background for the table */
+  background-color: #c37200; /* Light background for the table */
   padding: 20px;
   width: 100%; /* Full width of the container */
   box-sizing: border-box; /* Padding included in the width */
@@ -24,6 +24,7 @@ body {
 .hall-of-fame h2 {
   text-align: center;
   margin-bottom: 20px; /* Space below the title */
+  color:rgb(0, 0, 0)
 }
 
 #leaderboard {
@@ -34,14 +35,14 @@ body {
 
 #leaderboard th,
 #leaderboard td {
-  border: 1px solid #000000; /* Light border for the cells */
+  border: 1px solid #525252; /* Light border for the cells */
   padding: 8px;
   text-align: left;
   word-wrap: break-word; /* Ensures text wraps inside cells */
 }
 
 #leaderboard th {
-  background-color: #3f3f3f; /* Background color for headers */
+  background-color: #ffffff; /* Background color for headers */
 }
 
 /* Adjust the form container size if necessary */
@@ -62,7 +63,7 @@ th,
 td {
   text-align: left;
   padding: 8px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #161616;
 }
 
 th {
@@ -108,3 +109,14 @@ input[type="submit"]:hover {
     transform: translateY(0);
   }
 }
+
+#leaderboard,
+#leaderboard th,
+#leaderboard td {
+  color: rgb(35, 35, 35); /* This will change the font color to brown */
+}
+
+.record-form h3 {
+  color: rgb(255, 255, 255); /* Or any color you'd like to use */
+}
+
