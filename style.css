@@ -128,14 +128,14 @@ body {
 .hero-subtitle {
   color: var(--marigold);
   width: 70%;
-  font-size: calc(12px + 2.6vw);
+  font-size: 2.6vw;
   font-weight: bold;
   text-transform: uppercase;
   border: 2px dotted red;
 }
 
 .hero-title {
-  font-size: 10vw;
+  font-size: 6vw;
   width: 70%;
   border: 2px dotted red;
   font-weight: bold;
@@ -183,13 +183,13 @@ body {
 .section-title {
   color: #686868;
   margin-bottom: 16px; /* space below the title */
-  font-size: 14vw;
+  font-size: 8vw;
 }
 
 .section-subtitle {
   color: #000;
   margin-bottom: 32px; /* space below the subtitle */
-  font-size: 6vw; /* size that matches design */
+  font-size: 5vw; /* size that matches design */
   border: 2px dotted red;
 }
 
@@ -229,8 +229,8 @@ body {
   font-family: Verdana, Arial, Helvetica, sans-serif;
   font-weight: bold;
   margin: 20px 0; /* space around the title */
-  font-size: calc(5px + 9vw);
-  border: 2px dotted red;
+  font-size: 5vw;
+  border: 2px dotted blue;
 }
 
 .game-title .span {
